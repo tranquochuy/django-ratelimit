@@ -1,6 +1,5 @@
-from django.http import HttpResponse
+from django.core.exceptions import PermissionDenied
 
 
-class Ratelimited():
-    def __init__(self):
-        HttpResponse(status=403)
+class Ratelimited(PermissionDenied):
+    pass
