@@ -28,7 +28,7 @@ def ratelimit(group=None, key=None, rate=None, method=ALL, block=False):
                                          increment=True)
             if ratelimited and block:
                 print 'DEBUG - decorator'
-                raise PermissionDenied()
+                raise PermissionDenied
             return fn(*args, **kw)
         return _wrapped
     return decorator
