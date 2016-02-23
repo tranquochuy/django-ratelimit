@@ -1,5 +1,8 @@
 from django.core.exceptions import PermissionDenied
 
 
-class Ratelimited(PermissionDenied):
-    pass
+class Ratelimited():
+    def __init__(self):
+        print 'DEBUG - Ratelimited'
+
+        return PermissionDenied()
