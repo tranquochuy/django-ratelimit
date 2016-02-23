@@ -1,5 +1,5 @@
-from tastypie.http import HttpResponse
+from django.core.exceptions import PermissionDenied
 
 
-class Ratelimited(HttpResponse):
-    status_code = 403
+class Ratelimited(PermissionDenied):
+    pass
