@@ -1,15 +1,5 @@
-import json
-
-from tastypie.http import HttpBadRequest
+from tastypie.http import HttpResponse
 
 
-class Ratelimited():
-    """
-    Override
-    """
-
-    def __init__(self):
-        return HttpBadRequest(
-            json.dumps(None),
-            content_type='application/json',
-            status=403)
+class Ratelimited(HttpResponse):
+    status_code = 403
