@@ -2,10 +2,10 @@ from __future__ import absolute_import
 
 from functools import wraps
 
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 
 from ratelimit import ALL, UNSAFE
-from ratelimit.exceptions import Ratelimited
+# from ratelimit.exceptions import Ratelimited
 from ratelimit.utils import is_ratelimited
 
 
@@ -27,7 +27,7 @@ def ratelimit(group=None, key=None, rate=None, method=ALL, block=False):
                                          increment=True)
             if ratelimited and block:
                 print 'DEBUG - decorator'
-                raise Ratelimited()
+                raise HttpResponse(status=403)
             return fn(*args, **kw)
         return _wrapped
     return decorator
