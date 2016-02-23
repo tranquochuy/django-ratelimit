@@ -5,4 +5,4 @@ class Ratelimited():
     def __init__(self):
         print 'DEBUG - Ratelimited'
 
-        return PermissionDenied()
+        PermissionDenied()
